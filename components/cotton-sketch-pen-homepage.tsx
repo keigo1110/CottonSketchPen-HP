@@ -62,7 +62,7 @@ export function CottonSketchPenHomepageComponent() {
                 東京大学制作展2024
               </Button>
             </Link>
-            <Link href="/products">
+            <Link href="https://peatix.com/event/4181356/view?k=c97a8a32bb14bd502708b7c3d75bcb86bdefab90">
               <Button className="bg-[#FFCB00] text-[#01A0E9] hover:bg-[#FD000F] hover:text-white transition-all duration-300 transform hover:scale-105 text-lg px-8 py-4 rounded-full shadow-lg">
                 ワークショップ
               </Button>
@@ -73,14 +73,19 @@ export function CottonSketchPenHomepageComponent() {
         {/* デモ動画セクション */}
         <section className="py-16 bg-white/80 rounded-xl shadow-lg mb-12">
           <h2 className="text-4xl font-bold text-center mb-8 text-[#01A0E9]">デモ動画</h2>
-          <div className="aspect-w-16 aspect-h-9 max-w-4xl mx-auto">
-            <iframe
-              src="https://www.youtube.com/embed/POLLbRla_gg"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full rounded-xl shadow-2xl"
-            ></iframe>
+
+          {/* コンテナのmax-widthを広げ、パディングを追加 */}
+          <div className="max-w-6xl mx-auto px-4">
+            {/* アスペクト比を維持しながら、より大きな表示サイズを確保 */}
+            <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
+              <iframe
+                src="https://www.youtube.com/embed/qPGFxPecx3w?si=KUBbcEQm2dTCd5XV"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute top-0 left-0 w-full h-full rounded-xl shadow-2xl"
+              ></iframe>
+            </div>
           </div>
         </section>
 
