@@ -41,7 +41,7 @@ export function CottonSketchPenHomepageComponent() {
             transition={{ duration: 0.5 }}
             className="text-4xl font-bold mb-6 text-[#01A0E9]"
           >
-            わたあめの活動
+            CottonSketchPenの活動
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
