@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { motion } from "framer-motion"
 import { ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -33,29 +32,14 @@ export function CottonSketchPenHomepageComponent() {
 
       <main className="container mx-auto px-4">
         {/* わたあめの活動セクション */}
-        <section className="text-center py-16 bg-white/80 rounded-xl shadow-lg mb-12">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl font-bold mb-6 text-[#01A0E9]"
-          >
+        <section className="text-center py-16 bg-white/80 rounded-xl shadow-lg mb-12 transition-all duration-500 hover:shadow-xl">
+          <h2 className="text-4xl font-bold mb-6 text-[#01A0E9] transition-transform duration-500 hover:scale-105">
             わたあめの活動
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl mb-8 text-gray-700"
-          >
+          </h2>
+          <p className="text-xl mb-8 text-gray-700">
             CottonSketchPenで、つくる楽しさつかう楽しさを
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="space-x-4"
-          >
+          </p>
+          <div className="space-x-4">
             <Link href="https://www.iiiexhibition.com/">
               <Button className="bg-[#FFCB00] text-[#01A0E9] hover:bg-[#FD000F] hover:text-white transition-all duration-300 transform hover:scale-105 text-lg px-8 py-4 rounded-full shadow-lg">
                 東京大学制作展2024
@@ -66,11 +50,11 @@ export function CottonSketchPenHomepageComponent() {
                 ワークショップ
               </Button>
             </Link>
-          </motion.div>
+          </div>
         </section>
 
         {/* デモ動画セクション */}
-        <section className="py-16 bg-white/80 rounded-xl shadow-lg mb-12">
+        <section className="py-16 bg-white/80 rounded-xl shadow-lg mb-12 transition-all duration-500 hover:shadow-xl">
           <h2 className="text-4xl font-bold text-center mb-8 text-[#01A0E9]">デモ動画</h2>
           <div className="aspect-w-16 aspect-h-9 max-w-4xl mx-auto">
             <iframe
@@ -84,17 +68,13 @@ export function CottonSketchPenHomepageComponent() {
         </section>
 
         {/* 製品写真セクション */}
-        <section className="py-16 bg-white/80 rounded-xl shadow-lg mb-12">
+        <section className="py-16 bg-white/80 rounded-xl shadow-lg mb-12 transition-all duration-500 hover:shadow-xl">
           <h2 className="text-4xl font-bold text-center mb-8 text-[#01A0E9]">製品写真</h2>
           <div className="relative max-w-4xl mx-auto">
-            <motion.img
-              key={activeImage}
+            <img
               src={images[activeImage]}
               alt={`CottonSketchPen 写真 ${activeImage + 1}`}
-              className="w-full h-auto max-h-[600px] object-contain rounded-xl shadow-xl"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
+              className="w-full h-auto max-h-[600px] object-contain rounded-xl shadow-xl transition-opacity duration-500"
             />
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3">
               {images.map((_, index) => (
@@ -152,14 +132,12 @@ export function CottonSketchPenHomepageComponent() {
         </div>
       </footer>
 
-      <motion.button
-        className="fixed bottom-8 right-8 bg-[#FFCB00] rounded-full p-4 cursor-pointer shadow-lg hover:shadow-xl"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
+      <button
+        className="fixed bottom-8 right-8 bg-[#FFCB00] rounded-full p-4 cursor-pointer shadow-lg hover:shadow-xl transition-transform duration-300 hover:scale-110 active:scale-95"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       >
         <ChevronDown className="w-8 h-8 text-[#01A0E9] transform rotate-180" />
-      </motion.button>
+      </button>
     </div>
   )
 }
