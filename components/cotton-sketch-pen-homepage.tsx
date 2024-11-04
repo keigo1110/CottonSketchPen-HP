@@ -1,25 +1,27 @@
 "use client"
 
 import { useState } from "react"
+import { motion } from "framer-motion"
 import { ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
+import Image from "next/image"
 
 export function CottonSketchPenHomepageComponent() {
   const [activeImage, setActiveImage] = useState(0)
 
   const images = [
-    "/machine.JPG?height=400&width=600",
-    "/1102wata.JPG?height=400&width=600",
-    "/wataame.jpeg?height=400&width=600",
+    "/machine.JPG",
+    "/1102wata.JPG",
+    "/wataame.jpeg",
   ]
 
   const teamMembers = [
-    { name: "岡空来", role: "建築, 空気構造", image: "/members/oka.jpg?height=200&width=200" },
-    { name: "金澤政宜", role: "ロボティクス, ヒューマノイドロボット", image: "/members/kanazawa.jpg?height=200&width=200" },
-    { name: "中田裕紀", role: "コンピュータサイエンス, 群ロボット", image: "/members/nakata.jpg?height=200&width=200" },
-    { name: "南田桂吾", role: "ロボティクス, CV", image: "/members/minamida.jpg?height=200&width=200" },
+    { name: "岡空来", role: "建築, 空気構造", image: "/members/oka.jpg" },
+    { name: "金澤政宜", role: "ロボティクス, ヒューマノイドロボット", image: "/members/kanazawa.jpg" },
+    { name: "中田裕紀", role: "コンピュータサイエンス, 群ロボット", image: "/members/nakata.jpg" },
+    { name: "南田桂吾", role: "ロボティクス, CV", image: "/members/minamida.jpg" },
   ]
 
   return (
@@ -32,14 +34,29 @@ export function CottonSketchPenHomepageComponent() {
 
       <main className="container mx-auto px-4">
         {/* わたあめの活動セクション */}
-        <section className="text-center py-16 bg-white/80 rounded-xl shadow-lg mb-12 transition-all duration-500 hover:shadow-xl">
-          <h2 className="text-4xl font-bold mb-6 text-[#01A0E9] transition-transform duration-500 hover:scale-105">
+        <section className="text-center py-16 bg-white/80 rounded-xl shadow-lg mb-12">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl font-bold mb-6 text-[#01A0E9]"
+          >
             わたあめの活動
-          </h2>
-          <p className="text-xl mb-8 text-gray-700">
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-xl mb-8 text-gray-700"
+          >
             CottonSketchPenで、つくる楽しさつかう楽しさを
-          </p>
-          <div className="space-x-4">
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="space-x-4"
+          >
             <Link href="https://www.iiiexhibition.com/">
               <Button className="bg-[#FFCB00] text-[#01A0E9] hover:bg-[#FD000F] hover:text-white transition-all duration-300 transform hover:scale-105 text-lg px-8 py-4 rounded-full shadow-lg">
                 東京大学制作展2024
@@ -50,15 +67,15 @@ export function CottonSketchPenHomepageComponent() {
                 ワークショップ
               </Button>
             </Link>
-          </div>
+          </motion.div>
         </section>
 
         {/* デモ動画セクション */}
-        <section className="py-16 bg-white/80 rounded-xl shadow-lg mb-12 transition-all duration-500 hover:shadow-xl">
+        <section className="py-16 bg-white/80 rounded-xl shadow-lg mb-12">
           <h2 className="text-4xl font-bold text-center mb-8 text-[#01A0E9]">デモ動画</h2>
           <div className="aspect-w-16 aspect-h-9 max-w-4xl mx-auto">
             <iframe
-              src="https://www.youtube.com/watch?v=POLLbRla_gg"
+              src="https://www.youtube.com/embed/POLLbRla_gg"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -68,14 +85,24 @@ export function CottonSketchPenHomepageComponent() {
         </section>
 
         {/* 製品写真セクション */}
-        <section className="py-16 bg-white/80 rounded-xl shadow-lg mb-12 transition-all duration-500 hover:shadow-xl">
+        <section className="py-16 bg-white/80 rounded-xl shadow-lg mb-12">
           <h2 className="text-4xl font-bold text-center mb-8 text-[#01A0E9]">製品写真</h2>
           <div className="relative max-w-4xl mx-auto">
-            <img
-              src={images[activeImage]}
-              alt={`CottonSketchPen 写真 ${activeImage + 1}`}
-              className="w-full h-auto max-h-[600px] object-contain rounded-xl shadow-xl transition-opacity duration-500"
-            />
+            <motion.div
+              key={activeImage}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="relative w-full h-[600px]"
+            >
+              <Image
+                src={images[activeImage]}
+                alt={`CottonSketchPen 写真 ${activeImage + 1}`}
+                fill
+                className="object-contain rounded-xl shadow-xl"
+                priority
+              />
+            </motion.div>
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-3">
               {images.map((_, index) => (
                 <button
@@ -114,7 +141,14 @@ export function CottonSketchPenHomepageComponent() {
             {teamMembers.map((member, index) => (
               <Card key={index} className="bg-white/90 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                 <CardHeader>
-                  <img src={member.image} alt={member.name} className="w-full h-auto rounded-xl shadow-md" />
+                  <div className="relative w-full h-48">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="rounded-xl shadow-md object-cover"
+                    />
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <CardTitle className="text-xl text-[#01A0E9] mb-2">{member.name}</CardTitle>
@@ -132,12 +166,14 @@ export function CottonSketchPenHomepageComponent() {
         </div>
       </footer>
 
-      <button
-        className="fixed bottom-8 right-8 bg-[#FFCB00] rounded-full p-4 cursor-pointer shadow-lg hover:shadow-xl transition-transform duration-300 hover:scale-110 active:scale-95"
+      <motion.button
+        className="fixed bottom-8 right-8 bg-[#FFCB00] rounded-full p-4 cursor-pointer shadow-lg hover:shadow-xl"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       >
         <ChevronDown className="w-8 h-8 text-[#01A0E9] transform rotate-180" />
-      </button>
+      </motion.button>
     </div>
   )
 }
