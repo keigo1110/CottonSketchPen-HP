@@ -15,6 +15,7 @@ export function CottonSketchPenHomepageComponent() {
     "/machine.JPG",
     "/1102wata.JPG",
     "/wataame.jpeg",
+    "cup.JPG"
   ]
 
   const teamMembers = [
