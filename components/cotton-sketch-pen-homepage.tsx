@@ -1,12 +1,22 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import { motion } from "framer-motion"
 import { ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
 import Image from "next/image"
+
+// Fisher-Yatesシャッフルアルゴリズムの実装
+function shuffleArray<T>(array: T[]): T[] {
+  const newArray = [...array]
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]]
+  }
+  return newArray
+}
 
 export function CottonSketchPenHomepageComponent() {
   const [activeImage, setActiveImage] = useState(0)
@@ -15,7 +25,7 @@ export function CottonSketchPenHomepageComponent() {
     "/machine.JPG",
     "/1102wata.JPG",
     "/wataame.jpeg",
-    "cup.JPG"
+    "/cup.JPG"
   ]
 
   const teamMembers = [
@@ -24,6 +34,9 @@ export function CottonSketchPenHomepageComponent() {
     { name: "中田裕紀", role: "コンピュータサイエンス, 群ロボット", image: "/members/nakata.jpg" },
     { name: "南田桂吾", role: "ロボティクス, CV", image: "/members/minamida.jpg" },
   ]
+
+  // コンポーネントのマウント時に一度だけシャッフルを実行
+  const shuffledTeamMembers = useMemo(() => shuffleArray(teamMembers), [])
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#01A0E9] via-white to-[#01A0E9] text-white">
@@ -65,7 +78,17 @@ export function CottonSketchPenHomepageComponent() {
             </Link>
             <Link href="https://peatix.com/event/4181356/view?k=c97a8a32bb14bd502708b7c3d75bcb86bdefab90">
               <Button className="bg-[#FFCB00] text-[#01A0E9] hover:bg-[#FD000F] hover:text-white transition-all duration-300 transform hover:scale-105 text-lg px-8 py-4 rounded-full shadow-lg">
-                ワークショップ
+                東京大学制作展ワークショップ
+              </Button>
+            </Link>
+            <Link href="https://gugen.jp/subscriptions/work/1470">
+              <Button className="bg-[#FFCB00] text-[#01A0E9] hover:bg-[#FD000F] hover:text-white transition-all duration-300 transform hover:scale-105 text-lg px-8 py-4 rounded-full shadow-lg">
+                GUGEN
+              </Button>
+            </Link>
+            <Link href="https://protopedia.net/prototype/6400">
+              <Button className="bg-[#FFCB00] text-[#01A0E9] hover:bg-[#FD000F] hover:text-white transition-all duration-300 transform hover:scale-105 text-lg px-8 py-4 rounded-full shadow-lg">
+                ProtoPedia
               </Button>
             </Link>
           </motion.div>
@@ -142,12 +165,12 @@ export function CottonSketchPenHomepageComponent() {
 
         {/* チームメンバーセクション */}
         <section className="py-16 bg-white/80 rounded-xl shadow-lg mb-12">
-          <h2 className="text-4xl font-bold text-center mb-12 text-[#01A0E9]">チームメンバー</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <Card key={index} className="bg-white/90 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <CardHeader>
-                  <div className="relative w-full h-48">
+          <h2 className="text-4xl font-bold text-center mb-12 text-[#01A0E9]">4ZIGENメンバー</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            {shuffledTeamMembers.map((member) => (
+              <Card key={member.name} className="bg-white/90 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 p-6 mx-2"> {/* カード全体にパディングを追加 */}
+                <CardHeader className="p-0"> {/* CardHeaderのデフォルトパディングを削除 */}
+                  <div className="relative w-full h-48 mb-4"> {/* 画像の下に余白を追加 */}
                     <Image
                       src={member.image}
                       alt={member.name}
@@ -156,7 +179,7 @@ export function CottonSketchPenHomepageComponent() {
                     />
                   </div>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="p-0"> {/* CardContentのデフォルトパディングを削除 */}
                   <CardTitle className="text-xl text-[#01A0E9] mb-2">{member.name}</CardTitle>
                   <CardDescription className="text-gray-600">{member.role}</CardDescription>
                 </CardContent>
