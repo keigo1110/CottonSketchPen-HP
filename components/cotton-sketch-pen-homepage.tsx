@@ -61,8 +61,8 @@ export function CottonSketchPenHomepageComponent() {
     <div className="min-h-screen bg-gradient-to-b from-[#01A0E9] via-white to-[#01A0E9] text-white">
       {/* ヒーローセクション */}
       <header className="container mx-auto py-16">
-        <h1 className="text-6xl font-bold text-center mb-4 animate-fade-in">CottonSketchPen</h1>
-        <p className="text-xl text-center mt-4 animate-slide-up">必要なときに必要なものを作り出せる</p>
+        <h1 className="text-4xl md:text-6xl font-bold text-center mb-4 animate-fade-in">CottonSketchPen</h1>
+        <p className="text-lg md:text-xl text-center mt-4 animate-slide-up">必要なときに必要なものを作り出せる</p>
       </header>
 
       <main className="container mx-auto px-4">
@@ -113,13 +113,13 @@ export function CottonSketchPenHomepageComponent() {
           </motion.div>
         </section>
 
-        {/* デモ動画セクション */}
+        {/* デ���動画セクション */}
         <section className="py-16 bg-white/80 rounded-xl shadow-lg mb-12">
           <h2 className="text-4xl font-bold text-center mb-8 text-[#01A0E9]">デモ動画</h2>
 
           {/* コンテナのmax-widthを広げ、パディングを追加 */}
           <div className="max-w-6xl mx-auto px-4">
-            {/* アス��クト比を維持しながら、より大きな表示サイズを確保 */}
+            {/* アスクト比を維持しながら、より大きな表示サイズを確保 */}
             <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
               <iframe
                 src="https://www.youtube.com/embed/qPGFxPecx3w?si=KUBbcEQm2dTCd5XV"
