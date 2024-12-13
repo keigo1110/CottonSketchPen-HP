@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useMemo } from "react"
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -22,11 +22,26 @@ export function CottonSketchPenHomepageComponent() {
   const [activeImage, setActiveImage] = useState(0)
 
   const images = [
+    "/cottonsketchgan.jpg",
+    "/ver1.jpg",
+    "/ver2.jpg",
+    "/ver3.jpg",
+    "/ver4.jpg",
+    "/ver5.jpg",
     "/machine.JPG",
-    "/1102wata.JPG",
+    "/1102wata.jpeg",
     "/wataame.jpeg",
-    "/cup.JPG"
+    "/cup.jpeg"
   ]
+
+  // 3秒ごとに画像を自動で切り替える
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveImage((prev) => (prev + 1) % images.length)
+    }, 4000)
+
+    return () => clearInterval(timer)
+  }, [])
 
   const teamMembers = [
     { name: "岡空来", role: "建築, 空気構造", image: "/members/oka.jpg" },
@@ -35,15 +50,19 @@ export function CottonSketchPenHomepageComponent() {
     { name: "南田桂吾", role: "ロボティクス, CV", image: "/members/minamida.jpg" },
   ]
 
-  // コンポーネントのマウント時に一度だけシャッフルを実行
-  const shuffledTeamMembers = useMemo(() => shuffleArray(teamMembers), [])
+  // クライアントサイドでのみシャッフルを実行するために、useEffectを使用
+  const [shuffledMembers, setShuffledMembers] = useState(teamMembers)
+
+  useEffect(() => {
+    setShuffledMembers(shuffleArray(teamMembers))
+  }, []) // マウント時に1回だけ実行
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#01A0E9] via-white to-[#01A0E9] text-white">
       {/* ヒーローセクション */}
       <header className="container mx-auto py-16">
         <h1 className="text-6xl font-bold text-center mb-4 animate-fade-in">CottonSketchPen</h1>
-        <p className="text-2xl text-center mt-4 animate-slide-up">必要なときに必要なものを作り出せる</p>
+        <p className="text-xl text-center mt-4 animate-slide-up">必要なときに必要なものを作り出せる</p>
       </header>
 
       <main className="container mx-auto px-4">
@@ -69,25 +88,25 @@ export function CottonSketchPenHomepageComponent() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="space-x-4"
+            className="space-x-4 flex flex-wrap justify-center gap-4"
           >
             <Link href="https://www.iiiexhibition.com/">
-              <Button className="bg-[#FFCB00] text-[#01A0E9] hover:bg-[#FD000F] hover:text-white transition-all duration-300 transform hover:scale-105 text-lg px-8 py-4 rounded-full shadow-lg">
+              <Button className="bg-[#FFCB00] text-[#01A0E9] hover:bg-[#FD000F] hover:text-white transition-all duration-300 transform hover:scale-105 text-lg px-8 py-4 rounded-full shadow-lg mb-4">
                 東京大学制作展2024
               </Button>
             </Link>
             <Link href="https://peatix.com/event/4181356/view?k=c97a8a32bb14bd502708b7c3d75bcb86bdefab90">
-              <Button className="bg-[#FFCB00] text-[#01A0E9] hover:bg-[#FD000F] hover:text-white transition-all duration-300 transform hover:scale-105 text-lg px-8 py-4 rounded-full shadow-lg">
+              <Button className="bg-[#FFCB00] text-[#01A0E9] hover:bg-[#FD000F] hover:text-white transition-all duration-300 transform hover:scale-105 text-lg px-8 py-4 rounded-full shadow-lg mb-4">
                 東京大学制作展ワークショップ
               </Button>
             </Link>
             <Link href="https://gugen.jp/subscriptions/work/1470">
-              <Button className="bg-[#FFCB00] text-[#01A0E9] hover:bg-[#FD000F] hover:text-white transition-all duration-300 transform hover:scale-105 text-lg px-8 py-4 rounded-full shadow-lg">
+              <Button className="bg-[#FFCB00] text-[#01A0E9] hover:bg-[#FD000F] hover:text-white transition-all duration-300 transform hover:scale-105 text-lg px-8 py-4 rounded-full shadow-lg mb-4">
                 GUGEN
               </Button>
             </Link>
             <Link href="https://protopedia.net/prototype/6400">
-              <Button className="bg-[#FFCB00] text-[#01A0E9] hover:bg-[#FD000F] hover:text-white transition-all duration-300 transform hover:scale-105 text-lg px-8 py-4 rounded-full shadow-lg">
+              <Button className="bg-[#FFCB00] text-[#01A0E9] hover:bg-[#FD000F] hover:text-white transition-all duration-300 transform hover:scale-105 text-lg px-8 py-4 rounded-full shadow-lg mb-4">
                 ProtoPedia
               </Button>
             </Link>
@@ -100,7 +119,7 @@ export function CottonSketchPenHomepageComponent() {
 
           {/* コンテナのmax-widthを広げ、パディングを追加 */}
           <div className="max-w-6xl mx-auto px-4">
-            {/* アスペクト比を維持しながら、より大きな表示サイズを確保 */}
+            {/* アス��クト比を維持しながら、より大きな表示サイズを確保 */}
             <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
               <iframe
                 src="https://www.youtube.com/embed/qPGFxPecx3w?si=KUBbcEQm2dTCd5XV"
@@ -167,7 +186,7 @@ export function CottonSketchPenHomepageComponent() {
         <section className="py-16 bg-white/80 rounded-xl shadow-lg mb-12">
           <h2 className="text-4xl font-bold text-center mb-12 text-[#01A0E9]">4ZIGENメンバー</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-            {shuffledTeamMembers.map((member) => (
+            {shuffledMembers.map((member) => (
               <Card key={member.name} className="bg-white/90 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 p-6 mx-2"> {/* カード全体にパディングを追加 */}
                 <CardHeader className="p-0"> {/* CardHeaderのデフォルトパディングを削除 */}
                   <div className="relative w-full h-48 mb-4"> {/* 画像の下に余白を追加 */}
