@@ -113,7 +113,7 @@ export function CottonSketchPenHomepageComponent() {
           </motion.div>
         </section>
 
-        {/* デ���動画セクション */}
+        {/* デモ動画セクション */}
         <section className="py-16 bg-white/80 rounded-xl shadow-lg mb-12">
           <h2 className="text-4xl font-bold text-center mb-8 text-[#01A0E9]">デモ動画</h2>
 
@@ -180,6 +180,87 @@ export function CottonSketchPenHomepageComponent() {
               </CardDescription>
             </CardContent>
           </Card>
+        </section>
+
+        {/* 受賞セクション */}
+        <section className="py-16 bg-white/80 rounded-xl shadow-lg mb-12">
+          <h2 className="text-4xl font-bold text-center mb-8 text-[#01A0E9]">受賞</h2>
+          <div className="max-w-4xl mx-auto space-y-8">
+            <Card className="bg-white/90 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="flex flex-col md:flex-row">
+                <div className="relative w-full md:w-1/3 h-[200px]">
+                  <Image
+                    src="/GUGEN.jpg"
+                    alt="GUGEN2024"
+                    fill
+                    className="object-cover rounded-t-xl md:rounded-l-xl md:rounded-t-none"
+                  />
+                </div>
+                <CardHeader className="flex-1">
+                  <CardTitle className="text-2xl font-bold text-[#01A0E9]">GUGEN2024 大賞・ほしいね賞</CardTitle>
+                  <CardDescription className="text-lg text-gray-700">
+                    国内最大級オリジナルハードウェアコンテストGUGENにて大賞・ほしいね賞を受賞しました
+                  </CardDescription>
+                </CardHeader>
+              </div>
+            </Card>
+          </div>
+        </section>
+
+        {/* 紹介セクション */}
+        <section className="py-16 bg-white/80 rounded-xl shadow-lg mb-12">
+          <h2 className="text-4xl font-bold text-center mb-8 text-[#01A0E9]">メディア掲載</h2>
+          <div className="max-w-4xl mx-auto">
+            <Card className="bg-white/90 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <CardContent className="pt-6">
+                <ul className="space-y-4">
+                  {/* linkがないものはnullにする */}
+                  {[
+                    {
+                      media: "未来事業イノベーションアワード",
+                      date: "2024.12.04",
+                      description: "朝日新聞社が中心となり実施する未来事業イノベーションアワードにてファイナリストに選出されました",
+                      link: "https://www.asahi.com/ads/tu/15496882"
+                    },
+                    {
+                      media: "ProtoPediaの時間",
+                      date: "2024.12.18",
+                      description: "プロトペディアの時間にて紹介していただきました",
+                      link: "https://www.youtube.com/live/uscQOlHnzzg?si=yIDhbQiYTgy6Nj9U&t=2790"
+                    },
+                    {
+                      media: "Digital PR Platform",
+                      date: "2024.12.23",
+                      description: "GUGEN2024のイベントレポートにて紹介していただきました",
+                      link: "https://digitalpr.jp/r_detail.php?release_id=101530"
+                    },
+                  ].map((item, index, array) => (
+                    <li key={item.date} className={index !== array.length - 1 ? "border-b pb-4" : "pb-4"}>
+                      <div className="flex justify-between items-baseline mb-2">
+                        <h3 className="text-xl font-bold text-[#01A0E9]">
+                          {item.link ? (
+                            <Link
+                              href={item.link}
+                              className="hover:underline hover:opacity-80 transition-all"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {item.media}
+                              <span className="inline-block ml-1">↗</span>
+                            </Link>
+                          ) : (
+                            item.media
+                          )}
+                        </h3>
+                        <span className="text-gray-500">{item.date}</span>
+                      </div>
+                      <p className="text-gray-700">{item.description}</p>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
         </section>
 
         {/* チームメンバーセクション */}
