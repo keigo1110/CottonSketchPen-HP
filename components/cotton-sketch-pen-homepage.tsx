@@ -234,6 +234,12 @@ export function CottonSketchPenHomepageComponent() {
                       description: "GUGEN2024のイベントレポートにて紹介していただきました",
                       link: "https://digitalpr.jp/r_detail.php?release_id=101530"
                     },
+                    {
+                      media: "東京大学大学院情報学環・学際情報学府",
+                      date: "2024.12.26",
+                      description: "ニュースでGUGEN2024受賞を報じていただきました",
+                      link: "https://www.iii.u-tokyo.ac.jp/news/2024122621779"
+                    }
                   ].map((item, index, array) => (
                     <li key={item.date} className={index !== array.length - 1 ? "border-b pb-4" : "pb-4"}>
                       <div className="flex justify-between items-baseline mb-2">
