@@ -239,6 +239,18 @@ export function CottonSketchPenHomepageComponent() {
                       date: "2024.12.26",
                       description: "ニュースでGUGEN2024受賞を報じていただきました",
                       link: "https://www.iii.u-tokyo.ac.jp/news/2024122621779"
+                    },
+                    {
+                      media: "基板の窓口 特集記事",
+                      date: "2025.01.14",
+                      description: "動画展示会レポートで取り上げていただきました",
+                      link: "https://jpcb.jp/pickup/index.php?m=detail&pkid=390"
+                    },
+                    {
+                      media: "子供の科学のWebサイト KoKaNet",
+                      date: "2025.02.05",
+                      description: "子供の科学のWebサイトで取り上げていただきました",
+                      link: "https://www.kodomonokagaku.com/read/88203/"
                     }
                   ].map((item, index, array) => (
                     <li key={item.date} className={index !== array.length - 1 ? "border-b pb-4" : "pb-4"}>
