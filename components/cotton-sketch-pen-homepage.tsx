@@ -460,7 +460,7 @@ export function CottonSketchPenHomepageComponent() {
                 <div className="p-4 md:p-8 relative">
                   <div className="aspect-video relative rounded-xl overflow-hidden shadow-2xl bg-black/5 backdrop-blur-lg">
                     <iframe
-                      src="https://www.youtube.com/embed/qPGFxPecx3w?si=KUBbcEQm2dTCd5XV"
+                      src="https://www.youtube.com/embed/B4XQRuago00?si=PQXbMAKPAw1YPWTZ"
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
@@ -816,6 +816,11 @@ export function CottonSketchPenHomepageComponent() {
             <h2 className="text-5xl font-bold text-[#01A0E9] mb-6">チーム</h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               4ZIGENメンバー
+              <Link href="https://4zigenhp.vercel.app/" target="_blank" rel="noopener noreferrer">
+                <Button className="ml-4 bg-[#01A0E9] text-white hover:bg-[#01A0E9]/80 transition-all duration-300 rounded-full px-4 py-1 text-sm shadow-md">
+                  4ZIGEN公式サイト
+                </Button>
+              </Link>
             </p>
           </motion.div>
 
@@ -966,6 +971,11 @@ export function CottonSketchPenHomepageComponent() {
                 <li>
                   <Link href="https://peatix.com/event/4181356/view?k=c97a8a32bb14bd502708b7c3d75bcb86bdefab90" className="text-white/80 hover:text-[#FFCB00] transition-all" aria-label="CottonSketchPenワークショップ情報">
                     ワークショップ
+                  </Link>
+                </li>
+                <li>
+                  <Link href="https://4zigenhp.vercel.app/" className="text-white/80 hover:text-[#FFCB00] transition-all" aria-label="4ZIGEN公式サイト">
+                    4ZIGEN公式サイト
                   </Link>
                 </li>
               </ul>
