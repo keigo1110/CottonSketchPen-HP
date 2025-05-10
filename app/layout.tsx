@@ -16,7 +16,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "CottonSketchPen",
   description:
-    "CottonSketchPenは、プラスチックボトルなどの廃棄物をその場でコットン状の素材に変えるポータブルデバイスです。持ち運びに便利で、環境に優しい持続可能な製品を提供し、旅行時の衣類や梱包材の悩みを解決します。",
+    "CottonSketchPenは、プラスチックボトルをその場でわた状の素材に変えるハンディ型のデバイスです。持ち運び可能で、環境に優しい循環型のものづくりを実現するとともに、必要なときに必要なものを作り出す未来を実現します。",
   icons: {
     icon: "/favicon.ico",
   },
