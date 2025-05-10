@@ -62,7 +62,7 @@ export function CottonSketchPenHomepageComponent() {
   const pageDescription = "プラスチックをわた状に変化させ、ものづくりを可能にする革新的なデバイス。東大制作展、GUGENで受賞。";
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#01A0E9] via-white to-[#01A0E9] text-white overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-[#01A0E9] via-white to-[#01A0E9] text-black overflow-hidden">
       <Head>
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
@@ -71,6 +71,7 @@ export function CottonSketchPenHomepageComponent() {
         <meta property="og:description" content={pageDescription} />
         <meta property="og:image" content="/cottonsketchgan.jpg" />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://cottonsketchpen.com" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={pageDescription} />
@@ -82,12 +83,12 @@ export function CottonSketchPenHomepageComponent() {
       <header className="relative min-h-screen flex flex-col items-center justify-center py-16 overflow-hidden">
         {/* 背景アニメーション */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#01A0E9] to-transparent opacity-80"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#01A0E9] to-transparent opacity-70"></div>
           {/* 背景のわたあめの糸をイメージした要素 */}
           {Array.from({ length: 15 }).map((_, i) => (
             <motion.div
               key={i}
-              className="absolute bg-white opacity-60 rounded-full"
+              className="absolute bg-white opacity-40 rounded-full"
               style={{
                 width: Math.random() * 300 + 100,
                 height: Math.random() * 300 + 100,
@@ -100,7 +101,7 @@ export function CottonSketchPenHomepageComponent() {
                 x: [0, Math.random() * 40 - 20],
                 y: [0, Math.random() * 40 - 20],
                 scale: [1, 1.1, 1],
-                opacity: [0.3, 0.7, 0.3],
+                opacity: [0.2, 0.5, 0.2],
               }}
               transition={{
                 duration: Math.random() * 10 + 10,
@@ -121,7 +122,7 @@ export function CottonSketchPenHomepageComponent() {
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">
               CottonSketchPen
             </h1>
-            <p className="text-xl md:text-2xl max-w-2xl mx-auto text-white drop-shadow">
+            <p className="text-xl md:text-2xl max-w-2xl mx-auto text-white drop-shadow-md">
               必要なときに必要なものを作り出す、プラスチックわた革命
             </p>
           </motion.div>
@@ -134,12 +135,12 @@ export function CottonSketchPenHomepageComponent() {
           >
             <Image
               src="/cottonsketchgan.jpg"
-              alt="CottonSketchPen メイン画像"
+              alt="CottonSketchPen - プラスチックをわた状に変化させる革新的デバイス"
               fill
-              className="object-cover object-top"
+              className="object-cover"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
             <div className="absolute bottom-8 left-0 right-0 text-center">
               <Link href="#concept">
                 <Button className="bg-white/20 backdrop-blur-md text-white border-2 border-white hover:bg-white hover:text-[#01A0E9] transition-all duration-300 rounded-full px-8 py-3">
@@ -160,17 +161,17 @@ export function CottonSketchPenHomepageComponent() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1 }}
-            className="mt-12 grid grid-cols-3 gap-4 max-w-3xl mx-auto"
+            className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto"
           >
-            <div className="bg-[#01A0E9]/50 backdrop-blur-md p-4 rounded-xl shadow-lg">
+            <div className="bg-[#01A0E9]/70 backdrop-blur-md p-4 rounded-xl shadow-lg">
               <h3 className="text-xl font-bold text-white drop-shadow-lg">環境にやさしい</h3>
               <p className="text-white text-sm drop-shadow">身の回りのプラスチックも生成物も再利用可能</p>
             </div>
-            <div className="bg-[#01A0E9]/50 backdrop-blur-md p-4 rounded-xl shadow-lg">
+            <div className="bg-[#01A0E9]/70 backdrop-blur-md p-4 rounded-xl shadow-lg">
               <h3 className="text-xl font-bold text-white drop-shadow-lg">柔軟な造形性</h3>
               <p className="text-white text-sm drop-shadow">軽量かつ強度のある造形を実現</p>
             </div>
-            <div className="bg-[#01A0E9]/50 backdrop-blur-md p-4 rounded-xl shadow-lg">
+            <div className="bg-[#01A0E9]/70 backdrop-blur-md p-4 rounded-xl shadow-lg">
               <h3 className="text-xl font-bold text-white drop-shadow-lg">簡単操作</h3>
               <p className="text-white text-sm drop-shadow">設計図不要で誰でも簡単にものづくり可能</p>
             </div>
@@ -190,9 +191,8 @@ export function CottonSketchPenHomepageComponent() {
 
       <main className="container mx-auto px-4">
         {/* わたあめの活動セクション */}
-        <section id="activities" className="text-center py-28 bg-gradient-to-b from-white/90 via-[#01A0E9]/5 to-white/80 rounded-xl shadow-lg mb-20 relative overflow-hidden">
-          {/* 装飾要素 */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#FFCB00]/10 rounded-full transform translate-x-1/3 -translate-y-1/3"></div>
+        <section id="activities" className="text-center py-28 bg-white/95 rounded-xl shadow-lg mb-20 relative overflow-hidden">
+          {/* 装飾要素 - 黄色のグラデーションを削除し、青色のみに変更 */}
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#01A0E9]/10 rounded-full transform -translate-x-1/3 translate-y-1/3"></div>
 
           <motion.h2
@@ -207,7 +207,7 @@ export function CottonSketchPenHomepageComponent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl mb-12 text-gray-700 max-w-2xl mx-auto relative z-10"
+            className="text-xl mb-12 text-gray-800 max-w-2xl mx-auto relative z-10"
           >
             CottonSketchPenで、つくる楽しさつかう楽しさを伝えてきました
           </motion.p>
@@ -295,7 +295,7 @@ export function CottonSketchPenHomepageComponent() {
         </section>
 
         {/* 製品写真セクション */}
-        <section className="py-28 mb-20 bg-gradient-to-b from-white/90 to-[#01A0E9]/10 rounded-xl shadow-lg">
+        <section className="py-28 mb-20 bg-white rounded-xl shadow-lg">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -304,7 +304,7 @@ export function CottonSketchPenHomepageComponent() {
             className="text-center mb-12"
           >
             <h2 className="text-5xl font-bold text-[#01A0E9] mb-6">ギャラリー</h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-800 max-w-3xl mx-auto">
               CottonSketchPenの過去の機体や造形物たちです
             </p>
           </motion.div>
@@ -316,7 +316,7 @@ export function CottonSketchPenHomepageComponent() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="relative w-full h-[70vh] mb-8 overflow-hidden rounded-2xl shadow-2xl bg-gradient-to-br from-[#01A0E9]/5 to-white/50 backdrop-blur-sm p-1"
+              className="relative w-full h-[70vh] mb-8 overflow-hidden rounded-2xl shadow-2xl bg-white p-1"
             >
               <div className="absolute inset-1 overflow-hidden rounded-xl">
                 <Image
@@ -336,10 +336,10 @@ export function CottonSketchPenHomepageComponent() {
                   className="object-contain rounded-xl transition-all duration-500 hover:scale-105"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               </div>
               <div className="absolute bottom-8 left-8 right-8 text-white z-10">
-                <div className="bg-[#01A0E9]/70 backdrop-blur-md p-4 rounded-xl shadow-lg">
+                <div className="bg-[#01A0E9]/80 backdrop-blur-md p-4 rounded-xl shadow-lg">
                   <h3 className="text-2xl font-bold">
                     {activeImage === 0 && "最新機体"}
                     {activeImage === 1 && "初期プロトタイプ"}
@@ -352,29 +352,29 @@ export function CottonSketchPenHomepageComponent() {
                     {activeImage === 8 && "わた繊維構造"}
                     {activeImage === 9 && "わた梱包実験"}
                   </h3>
-                  <p className="text-white/90 mt-2">
-                    {activeImage === 0 && "CottonSketchPenの最新機体"}
-                    {activeImage === 1 && "最初期のプロトタイプ"}
-                    {activeImage === 2 && "風で送りわたを射出"}
-                    {activeImage === 3 && "射出したものを吹き付ける"}
-                    {activeImage === 4 && "プラスチックでわたになることを確認"}
-                    {activeImage === 5 && "プラスチックわたの一方向射出"}
-                    {activeImage === 6 && "ハンディタイプのCottonSketchPenの完成"}
-                    {activeImage === 7 && "プラスチックわたの様子"}
-                    {activeImage === 8 && "わた繊維"}
-                    {activeImage === 9 && "コップに梱包としてわたを吹き付けた様子"}
+                  <p className="text-white mt-2">
+                    {activeImage === 0 && "CottonSketchPenの最新機体です。使いやすさと性能を向上させました。"}
+                    {activeImage === 1 && "最初期のプロトタイプです。基本原理の検証から始めました。"}
+                    {activeImage === 2 && "風で送りわたを射出する機構です。均一な吹き付けを実現します。"}
+                    {activeImage === 3 && "射出したものを吹き付ける実験の様子です。"}
+                    {activeImage === 4 && "プラスチックがわたになることを確認する実験です。"}
+                    {activeImage === 5 && "プラスチックわたの一方向射出テストです。"}
+                    {activeImage === 6 && "ハンディタイプのCottonSketchPenの完成形です。"}
+                    {activeImage === 7 && "プラスチックがわた状になった様子です。軽量で弾力性があります。"}
+                    {activeImage === 8 && "わた繊維の拡大写真です。複雑に絡み合う構造が特徴です。"}
+                    {activeImage === 9 && "コップに梱包としてわたを吹き付けた様子です。実用例の一つです。"}
                   </p>
                 </div>
               </div>
             </motion.div>
 
             {/* サムネイルナビゲーション */}
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
               {images.slice(0, 5).map((image, index) => (
                 <button
                   key={index}
                   className={`relative overflow-hidden rounded-lg aspect-square transition-all shadow-md hover:shadow-lg ${
-                    index === activeImage ? "ring-4 ring-[#FFCB00] scale-110" : "opacity-80 hover:opacity-100 hover:scale-105"
+                    index === activeImage ? "ring-4 ring-[#01A0E9] scale-110" : "opacity-80 hover:opacity-100 hover:scale-105"
                   }`}
                   onClick={() => setActiveImage(index)}
                 >
@@ -393,12 +393,12 @@ export function CottonSketchPenHomepageComponent() {
                 </button>
               ))}
             </div>
-            <div className="mt-4 grid grid-cols-5 gap-4">
+            <div className="mt-4 grid grid-cols-2 sm:grid-cols-5 gap-4">
               {images.slice(5).map((image, index) => (
                 <button
                   key={index + 5}
                   className={`relative overflow-hidden rounded-lg aspect-square transition-all shadow-md hover:shadow-lg ${
-                    index + 5 === activeImage ? "ring-4 ring-[#FFCB00] scale-110" : "opacity-80 hover:opacity-100 hover:scale-105"
+                    index + 5 === activeImage ? "ring-4 ring-[#01A0E9] scale-110" : "opacity-80 hover:opacity-100 hover:scale-105"
                   }`}
                   onClick={() => setActiveImage(index + 5)}
                 >
@@ -427,30 +427,36 @@ export function CottonSketchPenHomepageComponent() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-[#01A0E9] to-[#0080C9] rounded-3xl overflow-hidden shadow-2xl"
+            className="bg-gradient-to-r from-[#01A0E9] to-[#015B9E] rounded-3xl overflow-hidden shadow-2xl"
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center">
               <div className="p-8 md:p-12 text-white order-2 lg:order-1 relative z-10">
                 <div className="relative">
-                  <div className="absolute -top-20 -left-20 w-40 h-40 bg-[#01A0E9]/10 rounded-full blur-xl"></div>
+                  <div className="absolute -top-20 -left-20 w-40 h-40 bg-white/10 rounded-full blur-xl"></div>
                   <h2 className="text-4xl md:text-5xl font-bold mb-6 relative">
                     <span className="text-white">
                       動画でわかる<br />CottonSketchPen
                     </span>
                   </h2>
-                  <p className="text-lg md:text-xl mb-8 text-white/90">
-                    CottonSketchPenのデモ映像です
+                  <p className="text-lg md:text-xl mb-8 text-white">
+                    CottonSketchPenのデモ映像を見て、実際の動作をご確認ください
                   </p>
                   <div className="flex flex-wrap gap-4">
                     <Link href="https://www.youtube.com/@4ZIGENGSii" target="_blank" rel="noopener noreferrer">
-                      <Button className="bg-white text-[#01A0E9] hover:bg-[#01A0E9]/90 hover:text-white transition-all duration-300 rounded-full px-6 shadow-lg">
+                      <Button className="bg-white text-[#01A0E9] hover:bg-white/80 hover:text-[#01A0E9] transition-all duration-300 rounded-full px-6 shadow-lg">
                         <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
                           <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                         </svg>
                         YouTube チャンネル
                       </Button>
                     </Link>
-                    <Link href="https://gugen.jp/subscriptions/work/1470" target="_blank" rel="noopener noreferrer">
+                    <Link href="https://4zigenhp.vercel.app/" target="_blank" rel="noopener noreferrer">
+                      <Button className="bg-white/20 text-white hover:bg-white hover:text-[#01A0E9] transition-all duration-300 rounded-full px-6 shadow-lg border border-white/40">
+                        <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                        </svg>
+                        4ZIGEN公式サイト
+                      </Button>
                     </Link>
                   </div>
                 </div>
@@ -458,47 +464,27 @@ export function CottonSketchPenHomepageComponent() {
 
               <div className="order-1 lg:order-2 relative">
                 <div className="p-4 md:p-8 relative">
-                  <div className="aspect-video relative rounded-xl overflow-hidden shadow-2xl bg-black/5 backdrop-blur-lg">
+                  <div className="aspect-video relative rounded-xl overflow-hidden shadow-2xl bg-black/10 backdrop-blur-lg">
                     <iframe
-                      src="https://www.youtube.com/embed/B4XQRuago00?si=PQXbMAKPAw1YPWTZ"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="absolute top-0 left-0 w-full h-full z-20"
+                      src="https://www.youtube.com/embed/B4XQRuago00?si=PQXbMAKPAw1YPWTZ&rel=0"
                       title="CottonSketchPen デモ映像"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      className="absolute top-0 left-0 w-full h-full z-20"
+                      loading="lazy"
+                      frameBorder="0"
+                      allowFullScreen
                     ></iframe>
 
                     {/* 装飾要素 */}
                     <div className="absolute top-0 left-0 w-full h-full rounded-xl overflow-hidden z-10">
                       <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-[#01A0E9]/30 to-transparent opacity-50"></div>
                     </div>
-
-                    {/* 視聴開始ボタン（デザイン用、実際には動作しない） */}
-                    <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none opacity-0">
-                      <div className="w-20 h-20 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center">
-                        <div className="w-16 h-16 bg-[#01A0E9] rounded-full flex items-center justify-center">
-                          <svg className="w-8 h-8 text-white transform translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8 5v14l11-7z"/>
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
                   </div>
 
                   {/* 装飾円形 */}
-                  <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#01A0E9]/30 rounded-full z-0 opacity-50 blur-md"></div>
-                  <div className="absolute -top-6 -left-6 w-40 h-40 bg-[#01A0E9]/30 rounded-full z-0 opacity-40 blur-lg"></div>
-                </div>
-
-                {/* ビデオプレイリスト装飾 (オプショナル) */}
-                <div className="hidden lg:flex absolute -right-8 bottom-16 z-30">
-                  <div className="bg-white/10 backdrop-blur-md rounded-l-xl p-3 shadow-lg transform -translate-x-2">
-                    <div className="space-y-3">
-                      <div className="w-20 h-2 bg-white/50 rounded-full"></div>
-                      <div className="w-16 h-2 bg-white/30 rounded-full"></div>
-                      <div className="w-14 h-2 bg-white/30 rounded-full"></div>
-                    </div>
-                  </div>
+                  <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-white/20 rounded-full z-0 opacity-50 blur-md"></div>
+                  <div className="absolute -top-6 -left-6 w-40 h-40 bg-white/20 rounded-full z-0 opacity-40 blur-lg"></div>
                 </div>
               </div>
             </div>
@@ -515,7 +501,7 @@ export function CottonSketchPenHomepageComponent() {
             className="text-center mb-16"
           >
             <h2 className="text-5xl font-bold text-[#01A0E9] mb-6">CottonSketchPenの原理</h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-800 max-w-3xl mx-auto">
               プラスチックをわたあめ機のように変換するデバイス
             </p>
           </motion.div>
@@ -528,11 +514,11 @@ export function CottonSketchPenHomepageComponent() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="relative rounded-xl overflow-hidden shadow-xl bg-white/80 p-4">
+              <div className="relative rounded-xl overflow-hidden shadow-xl bg-white p-4">
                 <div className="aspect-[4/3] relative w-full">
                   <Image
                     src="/function.png"
-                    alt="CottonSketchPen 原理図"
+                    alt="CottonSketchPenの動作原理図 - プラスチックからわた状素材を生成する仕組み"
                     fill
                     className="object-contain"
                   />
@@ -592,7 +578,7 @@ export function CottonSketchPenHomepageComponent() {
         </section>
 
         {/* 受賞セクション */}
-        <section className="py-28 mb-20 bg-white/80 rounded-xl shadow-lg">
+        <section className="py-28 mb-20 bg-white/95 rounded-xl shadow-lg">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -601,7 +587,7 @@ export function CottonSketchPenHomepageComponent() {
             className="text-center mb-16"
           >
             <h2 className="text-5xl font-bold text-[#01A0E9] mb-6">受賞歴</h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-800 max-w-3xl mx-auto">
               革新的なデバイスとして高い評価をいただいています
             </p>
           </motion.div>
@@ -613,30 +599,32 @@ export function CottonSketchPenHomepageComponent() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-br from-[#FFCB00]/10 to-[#FFCB00]/30 p-1 rounded-2xl shadow-xl"
+                className="bg-gradient-to-br from-[#01A0E9]/10 to-[#01A0E9]/30 p-1 rounded-2xl shadow-xl"
               >
-                <Card className="bg-white/90 border-0 h-full">
+                <Card className="bg-white/95 border-0 h-full">
                   <div className="flex flex-col h-full">
                     <div className="relative w-full aspect-video">
                       <Image
                         src="/GUGEN.jpg"
-                        alt="GUGEN2024"
+                        alt="GUGEN2024 - CottonSketchPenが大賞を受賞したイベント"
                         fill
                         className="object-cover rounded-t-xl"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        loading="lazy"
                       />
-                      <div className="absolute top-4 right-4 bg-[#FFCB00] text-white font-bold px-4 py-2 rounded-full shadow-lg">
+                      <div className="absolute top-4 right-4 bg-[#01A0E9] text-white font-bold px-4 py-2 rounded-full shadow-lg">
                         大賞
                       </div>
                     </div>
                     <CardHeader className="flex-1">
                       <CardTitle className="text-3xl font-bold text-[#01A0E9]">GUGEN2024 大賞</CardTitle>
-                      <CardDescription className="text-lg text-gray-700">
+                      <CardDescription className="text-lg text-gray-800">
                         国内最大級オリジナルハードウェアコンテストGUGENにて大賞を受賞し、革新的なものづくりデバイスとして高く評価されました。
                       </CardDescription>
                     </CardHeader>
                     <div className="p-6 pt-0">
                       <Link href="https://gugen.jp/subscriptions/work/1470" target="_blank" rel="noopener noreferrer">
-                        <Button className="bg-[#FFCB00] text-white hover:bg-[#01A0E9] transition-all duration-300 w-full">
+                        <Button className="bg-[#01A0E9] text-white hover:bg-[#01A0E9]/80 transition-all duration-300 w-full">
                           授賞詳細を見る
                         </Button>
                       </Link>
@@ -652,11 +640,11 @@ export function CottonSketchPenHomepageComponent() {
                 viewport={{ once: true }}
                 className="bg-gradient-to-br from-[#01A0E9]/10 to-[#01A0E9]/30 p-1 rounded-2xl shadow-xl"
               >
-                <Card className="bg-white/90 border-0 h-full">
+                <Card className="bg-white/95 border-0 h-full">
                   <div className="flex flex-col h-full">
                     <div className="relative w-full aspect-video bg-[#01A0E9]/10 rounded-t-xl flex items-center justify-center">
                       <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-                        <div className="w-32 h-32 bg-[#FFCB00]/20 rounded-full animate-pulse"></div>
+                        <div className="w-32 h-32 bg-[#01A0E9]/20 rounded-full animate-pulse"></div>
                       </div>
                       <div className="relative z-10 text-center p-8">
                         <h3 className="text-3xl font-bold text-[#01A0E9] mb-2">ほしいね賞</h3>
@@ -668,13 +656,13 @@ export function CottonSketchPenHomepageComponent() {
                     </div>
                     <CardHeader className="flex-1">
                       <CardTitle className="text-3xl font-bold text-[#01A0E9]">GUGEN2024 ほしいね賞</CardTitle>
-                      <CardDescription className="text-lg text-gray-700">
+                      <CardDescription className="text-lg text-gray-800">
                         一般投票によって最も欲しいとの評価を受け、ほしいね賞を獲得。ユーザー視点での価値も高く評価されました。
                       </CardDescription>
                     </CardHeader>
                     <div className="p-6 pt-0">
                       <Link href="https://gugen.jp/subscriptions/work/1470" target="_blank" rel="noopener noreferrer">
-                        <Button className="bg-[#01A0E9] text-white hover:bg-[#FFCB00] transition-all duration-300 w-full">
+                        <Button className="bg-[#01A0E9] text-white hover:bg-[#01A0E9]/80 transition-all duration-300 w-full">
                           授賞詳細を見る
                         </Button>
                       </Link>
@@ -696,15 +684,15 @@ export function CottonSketchPenHomepageComponent() {
             className="text-center mb-16"
           >
             <h2 className="text-5xl font-bold text-[#01A0E9] mb-6">メディア掲載</h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-800 max-w-3xl mx-auto">
               様々なメディアで取り上げられています
             </p>
           </motion.div>
 
           <div className="max-w-6xl mx-auto">
-            <div className="relative overflow-hidden rounded-2xl bg-white/90 shadow-xl">
+            <div className="relative overflow-hidden rounded-2xl bg-white/95 shadow-xl">
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#01A0E9]/10 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
-              <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#FFCB00]/10 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#01A0E9]/10 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
 
               <div className="relative z-10 p-8">
                 <div className="grid grid-cols-1 gap-y-6">
@@ -758,11 +746,11 @@ export function CottonSketchPenHomepageComponent() {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       viewport={{ once: true }}
-                      className={`flex items-center p-6 ${
+                      className={`flex flex-col sm:flex-row items-start sm:items-center p-6 ${
                         index % 2 === 0 ? "bg-[#01A0E9]/5" : "bg-white"
                       } rounded-xl hover:shadow-md transition-all duration-300`}
                     >
-                      <div className="w-16 h-16 flex-shrink-0 bg-white/80 rounded-lg flex items-center justify-center mr-6">
+                      <div className="w-16 h-16 flex-shrink-0 bg-white/80 rounded-lg flex items-center justify-center mr-6 mb-4 sm:mb-0">
                         {/* 実際にはロゴ画像を表示 */}
                         <div className="w-10 h-10 rounded-full bg-[#01A0E9]/20"></div>
                       </div>
@@ -784,15 +772,15 @@ export function CottonSketchPenHomepageComponent() {
                               item.media
                             )}
                           </h3>
-                          <span className="text-gray-500 text-sm">{item.date}</span>
+                          <span className="text-gray-500 text-sm mt-1 sm:mt-0">{item.date}</span>
                         </div>
-                        <p className="text-gray-700">{item.description}</p>
+                        <p className="text-gray-800">{item.description}</p>
                       </div>
 
-                      <div className="ml-4">
+                      <div className="ml-auto mt-4 sm:mt-0 sm:ml-4">
                         <Link href={item.link} target="_blank" rel="noopener noreferrer">
                           <Button variant="ghost" size="icon" className="rounded-full hover:bg-[#01A0E9]/10">
-                            <ChevronDown className="h-6 w-6 text-[#01A0E9] transform rotate-270" />
+                            <ChevronDown className="h-6 w-6 text-[#01A0E9] transform -rotate-90" />
                           </Button>
                         </Link>
                       </div>
@@ -814,7 +802,7 @@ export function CottonSketchPenHomepageComponent() {
             className="text-center mb-16"
           >
             <h2 className="text-5xl font-bold text-[#01A0E9] mb-6">チーム</h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-800 max-w-3xl mx-auto">
               4ZIGENメンバー
               <Link href="https://4zigenhp.vercel.app/" target="_blank" rel="noopener noreferrer">
                 <Button className="ml-4 bg-[#01A0E9] text-white hover:bg-[#01A0E9]/80 transition-all duration-300 rounded-full px-4 py-1 text-sm shadow-md">
@@ -825,7 +813,7 @@ export function CottonSketchPenHomepageComponent() {
           </motion.div>
 
           <div className="max-w-6xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {shuffledMembers.map((member, index) => (
                 <motion.div
                   key={member.name}
@@ -835,18 +823,20 @@ export function CottonSketchPenHomepageComponent() {
                   viewport={{ once: true }}
                 >
                   <Link href={member.url} target="_blank" rel="noopener noreferrer">
-                    <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#01A0E9]/40 to-[#01A0E9]/60 shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                    <div className="group relative overflow-hidden rounded-2xl bg-white shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
                       <div className="relative aspect-[3/4] overflow-hidden">
                         <Image
                           src={member.image}
-                          alt={member.name}
+                          alt={`CottonSketchPenチームメンバー: ${member.name} - ${member.role}`}
                           fill
-                          className="object-cover transition-all duration-700 group-hover:scale-110 brightness-105 contrast-105"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                          className="object-cover transition-all duration-700 group-hover:scale-110"
+                          loading="lazy"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#01A0E9]/80 via-[#01A0E9]/30 to-[#01A0E9]/10 opacity-40"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#01A0E9]/70 via-[#01A0E9]/20 to-transparent opacity-30 group-hover:opacity-40 transition-opacity duration-300"></div>
                       </div>
 
-                      <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform transition-all duration-500 bg-gradient-to-t from-[#01A0E9]/60 to-[#01A0E9]/10 backdrop-blur-[2px] group-hover:backdrop-blur-[4px]">
+                      <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform transition-all duration-500 bg-gradient-to-t from-[#01A0E9] to-transparent backdrop-blur-[2px] group-hover:backdrop-blur-[4px]">
                         <div className="relative">
                           <h3 className="text-2xl font-bold mb-2 drop-shadow-sm">{member.name}</h3>
                           <p className="text-white mb-4 drop-shadow-sm">{member.role}</p>
@@ -928,6 +918,16 @@ export function CottonSketchPenHomepageComponent() {
               viewport={{ once: true }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
+              <Link href="https://gugen.jp/subscriptions/work/1470" target="_blank" rel="noopener noreferrer">
+                <Button className="bg-white text-[#01A0E9] hover:bg-white/80 transition-all duration-300 px-8 py-3 rounded-full shadow-lg">
+                  受賞情報を見る
+                </Button>
+              </Link>
+              <Link href="https://www.youtube.com/watch?v=B4XQRuago00" target="_blank" rel="noopener noreferrer">
+                <Button className="bg-white/20 text-white hover:bg-white hover:text-[#01A0E9] border border-white transition-all duration-300 px-8 py-3 rounded-full shadow-lg">
+                  動画を見る
+                </Button>
+              </Link>
             </motion.div>
           </div>
         </div>
@@ -938,13 +938,23 @@ export function CottonSketchPenHomepageComponent() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div>
               <h2 className="text-2xl font-bold mb-6">CottonSketchPen</h2>
-              <p className="text-white/80 mb-6">
+              <p className="text-white/90 mb-6">
                 プラスチックをわた状に変化させ、ものづくりを可能にするデバイス
               </p>
               <div className="flex space-x-4">
-                <Link href="https://x.com/4ZIGENGSii" className="text-white/80 hover:text-[#FFCB00] transition-all" aria-label="X (Twitter)">
+                <Link href="https://x.com/4ZIGENGSii" className="text-white/90 hover:text-white transition-all" aria-label="X (Twitter)">
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                  </svg>
+                </Link>
+                <Link href="https://4zigenhp.vercel.app/" className="text-white/90 hover:text-white transition-all" aria-label="4ZIGEN公式サイト">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                  </svg>
+                </Link>
+                <Link href="https://www.youtube.com/@4ZIGENGSii" className="text-white/90 hover:text-white transition-all" aria-label="YouTubeチャンネル">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                   </svg>
                 </Link>
               </div>
@@ -954,27 +964,27 @@ export function CottonSketchPenHomepageComponent() {
               <h2 className="text-xl font-bold mb-6">リンク</h2>
               <ul className="space-y-4">
                 <li>
-                  <Link href="https://gugen.jp/subscriptions/work/1470" className="text-white/80 hover:text-[#FFCB00] transition-all" aria-label="GUGENでのCottonSketchPen掲載ページ">
+                  <Link href="https://gugen.jp/subscriptions/work/1470" className="text-white/90 hover:text-white transition-all" aria-label="GUGENでのCottonSketchPen掲載ページ">
                     GUGEN
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://protopedia.net/prototype/6400" className="text-white/80 hover:text-[#FFCB00] transition-all" aria-label="ProtoPediaでのCottonSketchPen掲載ページ">
+                  <Link href="https://protopedia.net/prototype/6400" className="text-white/90 hover:text-white transition-all" aria-label="ProtoPediaでのCottonSketchPen掲載ページ">
                     ProtoPedia
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://www.iiiexhibition.com/" className="text-white/80 hover:text-[#FFCB00] transition-all" aria-label="東京大学制作展公式サイト">
+                  <Link href="https://www.iiiexhibition.com/" className="text-white/90 hover:text-white transition-all" aria-label="東京大学制作展公式サイト">
                     東京大学制作展
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://peatix.com/event/4181356/view?k=c97a8a32bb14bd502708b7c3d75bcb86bdefab90" className="text-white/80 hover:text-[#FFCB00] transition-all" aria-label="CottonSketchPenワークショップ情報">
+                  <Link href="https://peatix.com/event/4181356/view?k=c97a8a32bb14bd502708b7c3d75bcb86bdefab90" className="text-white/90 hover:text-white transition-all" aria-label="CottonSketchPenワークショップ情報">
                     ワークショップ
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://4zigenhp.vercel.app/" className="text-white/80 hover:text-[#FFCB00] transition-all" aria-label="4ZIGEN公式サイト">
+                  <Link href="https://4zigenhp.vercel.app/" className="text-white/90 hover:text-white transition-all" aria-label="4ZIGEN公式サイト">
                     4ZIGEN公式サイト
                   </Link>
                 </li>
@@ -983,16 +993,16 @@ export function CottonSketchPenHomepageComponent() {
 
             <div>
               <h2 className="text-xl font-bold mb-6">コンタクト</h2>
-              <p className="text-white/80 mb-4">
+              <p className="text-white/90 mb-4">
                 お問い合わせはこちらから
               </p>
               <Link href="mailto:kamashigsii@gmail.com" aria-label="CottonSketchPenへのお問い合わせメール">
-                <Button className="bg-[#FFCB00] text-white hover:bg-white hover:text-[#01A0E9] transition-all duration-300 w-full mb-4">
+                <Button className="bg-white text-[#01A0E9] hover:bg-white/80 transition-all duration-300 w-full mb-4">
                   お問い合わせ
                 </Button>
               </Link>
               <p className="text-white/60 text-sm">
-                © {new Date().getFullYear()} CottonSketchPen. All rights reserved.
+                © {new Date().getFullYear()} CottonSketchPen by <Link href="https://4zigenhp.vercel.app/" className="hover:text-white transition-all">4ZIGEN</Link>. All rights reserved.
               </p>
             </div>
           </div>
@@ -1000,12 +1010,12 @@ export function CottonSketchPenHomepageComponent() {
       </footer>
 
       <motion.button
-        className="fixed bottom-8 right-8 bg-[#FFCB00] rounded-full p-4 cursor-pointer shadow-lg hover:shadow-xl z-50"
+        className="fixed bottom-8 right-8 bg-[#01A0E9] rounded-full p-4 cursor-pointer shadow-lg hover:shadow-xl z-50"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       >
-        <ChevronDown className="w-8 h-8 text-[#01A0E9] transform rotate-180" />
+        <ChevronDown className="w-8 h-8 text-white transform rotate-180" />
       </motion.button>
     </div>
   )
