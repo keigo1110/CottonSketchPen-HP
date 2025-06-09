@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
 import Image from "next/image"
-import Head from "next/head"
 
 // Fisher-Yatesシャッフルアルゴリズムの実装
 function shuffleArray<T>(array: T[]): T[] {
@@ -45,7 +44,7 @@ export function CottonSketchPenHomepageComponent() {
   }, [])
 
   const teamMembers = [
-    { name: "岡空来", role: "建築, 空気構造", image: "/members/oka.jpg", url: "#" },
+    { name: "岡空来", role: "建築, 空気構造", image: "/members/oka.jpg", url: "https://sites.google.com/view/soraoka/" },
     { name: "金澤政宜", role: "ロボティクス, ヒューマノイドロボット", image: "/members/kanazawa.jpg", url: "https://kanassi.info/" },
     { name: "中田裕紀", role: "コンピュータサイエンス, 群ロボット", image: "/members/nakata.jpg", url: "https://yuki-nakata.org/" },
     { name: "南田桂吾", role: "ロボティクス, CV", image: "/members/minamida.jpg", url: "https://keigominamida.com/" },
@@ -58,29 +57,11 @@ export function CottonSketchPenHomepageComponent() {
     setShuffledMembers(shuffleArray(teamMembers))
   }, []) // マウント時に1回だけ実行
 
-  const pageTitle = "CottonSketchPen - プラスチックわた革命";
-  const pageDescription = "プラスチックをわた状に変化させ、ものづくりを可能にする革新的なデバイス。東大制作展、GUGENで受賞。";
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#01A0E9] via-white to-[#01A0E9] text-black overflow-hidden">
-      <Head>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-        <meta name="keywords" content="CottonSketchPen, プラスチック, わた, ものづくり, 再利用, サステナブル, GUGEN, 東大制作展, 4ZIGEN" />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <meta property="og:image" content="/cottonsketchgan.jpg" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://cottonsketchpen.com" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={pageDescription} />
-        <meta name="twitter:image" content="/cottonsketchgan.jpg" />
-        <link rel="canonical" href="https://cottonsketchpen.com" />
-      </Head>
+    <div className="min-h-screen bg-gradient-to-b from-[#01A0E9] via-white to-[#01A0E9] text-black overflow-hidden">{/* メタデータはlayout.tsxで管理 */}
 
       {/* ヒーローセクション */}
-      <header className="relative min-h-screen flex flex-col items-center justify-center py-16 overflow-hidden">
+      <header className="relative min-h-screen flex flex-col items-center justify-center py-16 overflow-hidden" role="banner">
         {/* 背景アニメーション */}
         <div className="absolute inset-0 z-0">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#01A0E9] to-transparent opacity-70"></div>
@@ -119,10 +100,10 @@ export function CottonSketchPenHomepageComponent() {
             transition={{ duration: 1 }}
             className="mb-8"
           >
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg" itemProp="name">
               CottonSketchPen
             </h1>
-            <p className="text-xl md:text-2xl max-w-2xl mx-auto text-white drop-shadow-md">
+            <p className="text-xl md:text-2xl max-w-2xl mx-auto text-white drop-shadow-md" itemProp="description">
               必要なときに必要なものを作り出す、プラスチックわた革命
             </p>
           </motion.div>
@@ -135,25 +116,29 @@ export function CottonSketchPenHomepageComponent() {
           >
             <Image
               src="/cottonsketchgan.jpg"
-              alt="CottonSketchPen - プラスチックをわた状に変化させる革新的デバイス"
+              alt="CottonSketchPen - プラスチックをわた状に変化させる革新的デバイス、ハンディ型のプラスチック再利用デバイス"
               fill
               className="object-cover"
               priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+              quality={90}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
             <div className="absolute bottom-8 left-0 right-0 text-center">
-              <Link href="#concept">
-                <Button className="bg-white/20 backdrop-blur-md text-white border-2 border-white hover:bg-white hover:text-[#01A0E9] transition-all duration-300 rounded-full px-8 py-3">
+              <Link href="#concept" aria-label="CottonSketchPenの製品詳細セクションへ移動">
+                <Button className="bg-white/20 backdrop-blur-md text-white border-2 border-white hover:bg-white hover:text-[#01A0E9] transition-all duration-300 rounded-full px-8 py-3" aria-describedby="hero-cta-description">
                   製品について詳しく見る
                   <motion.div
                     animate={{ y: [0, 8, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                     className="ml-2"
+                    aria-hidden="true"
                   >
                     <ChevronDown className="h-5 w-5" />
                   </motion.div>
                 </Button>
               </Link>
+              <span id="hero-cta-description" className="sr-only">製品の詳細情報と技術説明をご覧いただけます</span>
             </div>
           </motion.div>
 
@@ -189,13 +174,14 @@ export function CottonSketchPenHomepageComponent() {
         </motion.div>
       </header>
 
-      <main className="container mx-auto px-4">
+      <main className="container mx-auto px-4" role="main">
         {/* わたあめの活動セクション */}
-        <section id="activities" className="text-center py-28 bg-white/95 rounded-xl shadow-lg mb-20 relative overflow-hidden">
+        <section id="activities" className="text-center py-28 bg-white/95 rounded-xl shadow-lg mb-20 relative overflow-hidden" aria-labelledby="activities-heading">
           {/* 装飾要素 - 黄色のグラデーションを削除し、青色のみに変更 */}
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#01A0E9]/10 rounded-full transform -translate-x-1/3 translate-y-1/3"></div>
 
           <motion.h2
+            id="activities-heading"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -933,12 +919,12 @@ export function CottonSketchPenHomepageComponent() {
         </div>
       </section>
 
-      <footer className="bg-[#003B6D] text-white py-16">
+      <footer className="bg-[#003B6D] text-white py-16" role="contentinfo" itemScope itemType="https://schema.org/Organization">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div>
-              <h2 className="text-2xl font-bold mb-6">CottonSketchPen</h2>
-              <p className="text-white/90 mb-6">
+              <h2 className="text-2xl font-bold mb-6" itemProp="name">CottonSketchPen</h2>
+              <p className="text-white/90 mb-6" itemProp="description">
                 プラスチックをわた状に変化させ、ものづくりを可能にするデバイス
               </p>
               <div className="flex space-x-4">

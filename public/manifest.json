@@ -1,0 +1,47 @@
+{
+    "name": "CottonSketchPen - プラスチックわた革命",
+    "short_name": "CottonSketchPen",
+    "description": "プラスチックをわた状に変化させ、ものづくりを可能にする革新的なデバイス",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#01A0E9",
+    "theme_color": "#01A0E9",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "lang": "ja-JP",
+    "categories": [
+        "technology",
+        "innovation",
+        "sustainability"
+    ],
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "sizes": "48x48",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "/apple-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/cottonsketchgan.jpg",
+            "sizes": "1920x1080",
+            "type": "image/jpeg",
+            "form_factor": "wide"
+        }
+    ]
+}
