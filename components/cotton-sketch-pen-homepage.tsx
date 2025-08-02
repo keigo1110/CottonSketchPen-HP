@@ -20,6 +20,26 @@ function shuffleArray<T>(array: T[]): T[] {
 
 export function CottonSketchPenHomepageComponent() {
   const [activeImage, setActiveImage] = useState(0)
+  const [isClient, setIsClient] = useState(false)
+  const [backgroundElements, setBackgroundElements] = useState<Array<{
+    width: number
+    height: number
+    top: number
+    left: number
+    x: number
+    y: number
+    duration: number
+  }>>([])
+  const [conceptElements, setConceptElements] = useState<Array<{
+    width: number
+    height: number
+    top: number
+    left: number
+    x: number
+    y: number
+    rotate: number
+    duration: number
+  }>>([])
 
   const images = [
     "/cottonsketchgan.jpg",
@@ -41,6 +61,36 @@ export function CottonSketchPenHomepageComponent() {
     }, 4000)
 
     return () => clearInterval(timer)
+  }, [])
+
+  // クライアントサイドでのみランダム値を生成
+  useEffect(() => {
+    setIsClient(true)
+
+    // 背景要素のランダム値を生成
+    const bgElements = Array.from({ length: 15 }).map(() => ({
+      width: Math.random() * 300 + 100,
+      height: Math.random() * 300 + 100,
+      top: Math.random() * 100,
+      left: Math.random() * 100,
+      x: Math.random() * 40 - 20,
+      y: Math.random() * 40 - 20,
+      duration: Math.random() * 10 + 10,
+    }))
+    setBackgroundElements(bgElements)
+
+    // コンセプトセクションのランダム値を生成
+    const conceptEls = Array.from({ length: 10 }).map(() => ({
+      width: Math.random() * 400 + 100,
+      height: Math.random() * 400 + 100,
+      top: Math.random() * 100,
+      left: Math.random() * 100,
+      x: Math.random() * 60 - 30,
+      y: Math.random() * 60 - 30,
+      rotate: Math.random() * 180,
+      duration: Math.random() * 20 + 10,
+    }))
+    setConceptElements(conceptEls)
   }, [])
 
   const teamMembers = [
@@ -66,26 +116,26 @@ export function CottonSketchPenHomepageComponent() {
         <div className="absolute inset-0 z-0">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#01A0E9] to-transparent opacity-70"></div>
           {/* 背景のわたあめの糸をイメージした要素 */}
-          {Array.from({ length: 15 }).map((_, i) => (
+          {isClient && backgroundElements.map((element, i) => (
             <motion.div
               key={i}
               className="absolute bg-white opacity-40 rounded-full"
               style={{
-                width: Math.random() * 300 + 100,
-                height: Math.random() * 300 + 100,
+                width: element.width,
+                height: element.height,
                 borderRadius: '40%',
                 filter: 'blur(50px)',
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
+                top: `${element.top}%`,
+                left: `${element.left}%`,
               }}
               animate={{
-                x: [0, Math.random() * 40 - 20],
-                y: [0, Math.random() * 40 - 20],
+                x: [0, element.x],
+                y: [0, element.y],
                 scale: [1, 1.1, 1],
                 opacity: [0.2, 0.5, 0.2],
               }}
               transition={{
-                duration: Math.random() * 10 + 10,
+                duration: element.duration,
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
@@ -104,7 +154,7 @@ export function CottonSketchPenHomepageComponent() {
               CottonSketchPen
             </h1>
             <p className="text-xl md:text-2xl max-w-2xl mx-auto text-white drop-shadow-md" itemProp="description">
-              必要なときに必要なものを作り出す、プラスチックわた革命
+              CottonSketchPenは、プラスチックボトルをわた状の素材に変えるハンディ型のデバイスです。必要なときに必要なものを作り出す、プラスチックわた革命を実現します。
             </p>
           </motion.div>
 
@@ -204,8 +254,8 @@ export function CottonSketchPenHomepageComponent() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="relative z-10 max-w-5xl mx-auto"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Link href="https://www.iiiexhibition.com/" className="group">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Link href="https://2024-main.pages.dev/" className="group">
                 <div className="bg-white/80 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform group-hover:translate-y--2 h-full">
                   <div className="flex flex-col h-full">
                     <div className="bg-[#FFCB00] text-white w-12 h-12 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -267,6 +317,24 @@ export function CottonSketchPenHomepageComponent() {
                     </div>
                     <h3 className="text-2xl font-bold text-[#01A0E9] mb-3">ProtoPedia</h3>
                     <p className="text-gray-600 mb-6 flex-grow">プロトタイプ共有プラットフォームにて技術解説と製品情報を公開しました。</p>
+                    <div className="mt-auto">
+                      <span className="inline-flex items-center text-[#FFCB00] font-bold group-hover:translate-x-2 transition-transform duration-300">
+                        詳細を見る
+                        <ChevronDown className="h-5 w-5 ml-2 transform -rotate-90" />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              <Link href="https://www.spark-awards.com/" className="group">
+                <div className="bg-white/80 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform group-hover:translate-y--2 h-full">
+                  <div className="flex flex-col h-full">
+                    <div className="bg-[#FFCB00] text-white w-12 h-12 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-xl font-bold">万</span>
+                    </div>
+                    <h3 className="text-2xl font-bold text-[#01A0E9] mb-3">S×PARK</h3>
+                    <p className="text-gray-600 mb-6 flex-grow">デジタル学園祭アワードS×PARKにて大阪・関西万博で展示をしました。</p>
                     <div className="mt-auto">
                       <span className="inline-flex items-center text-[#FFCB00] font-bold group-hover:translate-x-2 transition-transform duration-300">
                         詳細を見る
@@ -848,25 +916,25 @@ export function CottonSketchPenHomepageComponent() {
 
         {/* 装飾的な背景要素 */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-          {Array.from({ length: 10 }).map((_, i) => (
+          {isClient && conceptElements.map((element, i) => (
             <motion.div
               key={i}
               className="absolute bg-white opacity-10 rounded-full"
               style={{
-                width: Math.random() * 400 + 100,
-                height: Math.random() * 400 + 100,
+                width: element.width,
+                height: element.height,
                 borderRadius: '40%',
                 filter: 'blur(80px)',
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
+                top: `${element.top}%`,
+                left: `${element.left}%`,
               }}
               animate={{
-                x: [0, Math.random() * 60 - 30],
-                y: [0, Math.random() * 60 - 30],
-                rotate: [0, Math.random() * 180],
+                x: [0, element.x],
+                y: [0, element.y],
+                rotate: [0, element.rotate],
               }}
               transition={{
-                duration: Math.random() * 20 + 10,
+                duration: element.duration,
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
@@ -894,7 +962,7 @@ export function CottonSketchPenHomepageComponent() {
               className="text-xl mb-12"
             >
               CottonSketchPenで始める新しいものづくり体験。<br />
-              わたあめ構造の可能性を探求してみませんか？
+              プラスチックリサイクルとわたあめ構造の可能性を探求してみませんか？
             </motion.p>
 
             <motion.div
@@ -960,8 +1028,13 @@ export function CottonSketchPenHomepageComponent() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://www.iiiexhibition.com/" className="text-white/90 hover:text-white transition-all" aria-label="東京大学制作展公式サイト">
+                  <Link href="https://2024-main.pages.dev/" className="text-white/90 hover:text-white transition-all" aria-label="東京大学制作展公式サイト">
                     東京大学制作展
+                  </Link>
+                </li>
+                <li>
+                  <Link href="https://www.spark-awards.com/" className="text-white/90 hover:text-white transition-all" aria-label="S×PARK公式サイト">
+                    S×PARK
                   </Link>
                 </li>
                 <li>
